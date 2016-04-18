@@ -28,6 +28,7 @@
     "ava": "^0.14.0",
     "coveralls": "^2.11.9",
     "nyc": "^6.4.0",
+    "supertest": "^1.2.0",
     "tap-diff": "^0.1.1"
   },
   "engines": {
