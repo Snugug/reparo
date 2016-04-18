@@ -1,5 +1,21 @@
+#########################
+## Setup
+#########################
 language: node_js
 node_js:
   - v5
 
+#########################
+## Code Coverage
+#########################
 after_success: npm run coverage
+
+#########################
+## Deploy
+#########################
+deploy:
+  provider: heroku
+  api_key:
+    secure: ${HEROKU_TOKEN}
+  on:
+    branch: master
