@@ -1,0 +1,52 @@
+{
+  "name": "reparo",
+  "version": "1.0.0",
+  "description": "Repository maintainer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run nyc",
+    "nyc": "nyc --all npm run ava",
+    "ava": "ava | tap-diff",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snugug/reparo.git"
+  },
+  "author": "Sam Richard <sam@snug.ug>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snugug/reparo/issues"
+  },
+  "homepage": "https://github.com/Snugug/reparo#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "nodemon": "^1.9.1"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "coveralls": "^2.11.9",
+    "nyc": "^6.4.0"
+  },
+  "engines": {
+    "node": "^5.7",
+    "npm": "^3.6"
+  },
+  "nyc": {
+    "exclude": [
+      "tests/**/*",
+      "tasks/**/*",
+      "config/**/*",
+      "Gulpfile.js",
+      "index.js"
+    ]
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ],
+    "failFast": true,
+    "tap": true
+  }
+}
