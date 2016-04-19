@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Snugug/reparo#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "github": "^0.2.4",
     "nodemon": "^1.9.1"
   },
   "devDependencies": {
