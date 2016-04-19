@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "github": "^0.2.4",
+    "ibm-design-colors": "^1.5.1",
     "nodemon": "^1.9.1"
   },
   "devDependencies": {
