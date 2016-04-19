@@ -8,6 +8,7 @@
     "test": "npm run nyc",
     "nyc": "nyc --all npm run ava",
     "ava": "ava | tap-diff",
+    "ava:watch": "ava --watch | tap-diff",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
