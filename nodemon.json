@@ -1,0 +1,14 @@
+{
+  "ignore": [
+    "tests",
+    "node_modules"
+  ],
+  "verbose": true,
+  "watch": [
+    "index.js",
+    "lib",
+    "views",
+    "config"
+  ],
+  "ext": "js html json"
+}
