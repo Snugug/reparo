@@ -1,5 +1,5 @@
 import test from 'ava';
-import labels from '../../lib/labels/default';
+import labels from '../lib/labels/default';
 
 test('Default Labels', t => {
   let all = [];

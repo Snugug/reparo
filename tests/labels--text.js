@@ -1,7 +1,7 @@
 import test from 'ava';
 import color from 'color';
-import labels from '../../lib/labels/default';
-import text from '../../lib/labels/text';
+import labels from '../lib/labels/default';
+import text from '../lib/labels/text';
 
 test('Label Colors', t => {
   let resolved = text(labels);
