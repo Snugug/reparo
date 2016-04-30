@@ -45,8 +45,7 @@
       "tests/**/*",
       "tasks/**/*",
       "config/**/*",
-      "Gulpfile.js",
-      "index.js"
+      "Gulpfile.js"
     ]
   },
   "ava": {
