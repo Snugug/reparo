@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Snugug/reparo#readme",
   "dependencies": {
+    "color": "^0.11.1",
     "express": "^4.13.4",
     "github": "^0.2.4",
     "ibm-design-colors": "^1.5.1",
