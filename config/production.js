@@ -6,7 +6,11 @@ module.exports = {
   github: {
     client: process.env.GH_CLIENT,
     secret: process.env.GH_SECRET,
-    'url': process.env.HOST,
+    url: process.env.HOST,
+    api: {
+      host: process.env.GH_API,
+      pathPrefix: process.env.GH_API_PATH,
+      debug: false,
+    }
   }
-}
-
+};
