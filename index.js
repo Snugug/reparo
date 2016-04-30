@@ -3,12 +3,22 @@
 //////////////////////////////
 // Requires
 //////////////////////////////
-const server = require('./libs/server');
+const express = require('express');
+const config = require('config');
 
 //////////////////////////////
-// Start the Server
+// App Variables
 //////////////////////////////
-server.app.listen(server.port, () => {
-  // Ignoring this console.log warning for ESLint because this is useful information for the user
-  console.log(`Server starting on http://localhost:${server.port}`); // eslint-disable-line no-console
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Hello World</title><style>body{background:#c0ffee;}</style></head><body><h1>Hello World</h1></body></html>');
 });
+
+if (!module.parent) {
+  app.listen(config.server.port, () => {
+    console.log(`Server starting on ${config.server.host}:${config.server.port}`);
+  });
+}
+
+module.exports = app;

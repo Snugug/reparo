@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "npm run nyc",
     "nyc": "nyc --all npm run ava",
-    "ava": "ava | tap-diff",
+    "ava": "NODE_CONFIG_DIR=../config ava | tap-diff",
     "ava:watch": "ava --watch | tap-diff",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Snugug/reparo#readme",
   "dependencies": {
     "color": "^0.11.1",
+    "config": "^1.20.1",
     "express": "^4.13.4",
     "github": "^0.2.4",
     "ibm-design-colors": "^1.5.1",

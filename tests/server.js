@@ -1,10 +1,10 @@
 import test from 'ava';
 import request from 'supertest';
-import app from '../libs/server';
+import app from '../';
 
 test.beforeEach(t => {
   // Ignoring this param reassign as it's the standard for AVA to allow users to assign context to the tests
-  t.context.request = request(app.app); // eslint-disable-line no-param-reassign
+  t.context.request = request(app); // eslint-disable-line no-param-reassign
 });
 
 test.cb('Site Landing Page', t => {
