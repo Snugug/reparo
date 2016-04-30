@@ -5,6 +5,7 @@
 //////////////////////////////
 const express = require('express');
 const config = require('config');
+const nunjucks = require('nunjucks');
 
 //////////////////////////////
 // App Variables
@@ -12,10 +13,21 @@ const config = require('config');
 const app = express();
 
 //////////////////////////////
+// Configuration
+//////////////////////////////
+app.set('views', path.join(__dirname, 'views'));
+nunjucks.configure(['views', 'templates'], {
+  'autoescape': true,
+  'express': app,
+});
+app.set('view engine', 'html');
 // Routing
 //////////////////////////////
 app.get('/', (req, res) => {
-  res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Hello World</title><style>body{background:#c0ffee;}</style></head><body><h1>Hello World</h1></body></html>');
+  res.render('index.html', {
+    authenticated: res.locals.auth
+  });
+});
 });
 
 //////////////////////////////

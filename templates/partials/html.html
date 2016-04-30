@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% if title %}{{title}} | {% endif %}Reparo</title>
+</head>
+<body>
+  <header>
+    <a href="/">Reparo</a>
+    <nav>
+      <ul>
+      {% if authenticated %}
+        <li><a href="/labels">Label Style Guide</a></li>
+        <li><a href="/quartermaster">Instrumentation</a></li>
+      {% else %}
+        <li><a href="/login">Login</a></li>
+      {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+
+
+</body>
+</html>
