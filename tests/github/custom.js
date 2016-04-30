@@ -5,7 +5,7 @@ const keys = [ 'config', 'debug', 'version', '3.0.0', 'constants', 'requestHeade
 test('Custom GitHub Host', t => {
   process.env['GHE'] = 'github.company.com';
 
-  const github = require('../../libs/github');
+  const github = require('../../lib/github');
 
   t.deepEqual(Object.keys(github), keys, 'Contains all endpoint functions');
   t.is(github.config.host, 'github.company.com', 'Custom GitHub API endpoint');
