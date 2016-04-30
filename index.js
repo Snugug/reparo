@@ -42,10 +42,11 @@ app.use((req, res, next) => {
 
   if (token.length >= 1) {
     auth = true;
-    req.flash('token', token)
+    req.flash('token', token);
+    res.locals.token = token[0].access_token;
   }
 
-  res.locals.auth = auth;
+  res.locals.authenticated = auth;
   next();
 });
 
@@ -53,9 +54,7 @@ app.use((req, res, next) => {
 // Routing
 //////////////////////////////
 app.get('/', (req, res) => {
-  res.render('index.html', {
-    authenticated: res.locals.auth
-  });
+  res.render('index.html');
 });
 
 // OAuth
