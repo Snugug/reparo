@@ -8,6 +8,8 @@ const config = require('config');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 
 const oauth = require('./lib/oauth')();
 
@@ -26,6 +28,13 @@ nunjucks.configure(['views', 'templates'], {
 });
 app.set('view engine', 'html');
 
+// Session
+app.use(cookieParser());
+app.use(cookieSession({
+  'secret': 'babka'
+}));
+
+// Flash
 app.use(flash());
 app.use((req, res, next) => {
   const token = req.flash('token');
