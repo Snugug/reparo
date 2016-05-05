@@ -32,7 +32,7 @@ if (config.cookies.secure) {
   app.set('trust proxy', 1);
 }
 app.use(session({
-  secret: 'babka',
+  secret: config.cookies.secret,
   resave: false,
   saveUninitialized: true,
   cookie: {

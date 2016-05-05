@@ -15,5 +15,6 @@ module.exports = {
   },
   cookies: {
     secure: true,
+    secret: process.env.COOKIE_SECRET,
   },
 };

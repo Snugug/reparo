@@ -25,5 +25,6 @@ module.exports = {
   },
   cookies: {
     secure: false,
+    secret: process.env.COOKIE_SECRET || 'babka',
   },
 }
