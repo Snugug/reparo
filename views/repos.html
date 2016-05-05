@@ -1,0 +1,18 @@
+{% extends 'partials/html.html' %}
+
+{% block main %}
+<h2>Orgs</h2>
+<ul>
+  {% for org in repos.orgs %}
+  <li>{{org}}</li>
+  {% endfor %}
+</ul>
+
+<h3>Repos</h3>
+<ul>
+  {% for repo in repos.repos %}
+  <li><a href="{{host}}/{{repo.org}}/{{repo.repo}}">{{repo.repo}}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
