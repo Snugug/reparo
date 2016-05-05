@@ -22,5 +22,8 @@ module.exports = {
       host: process.env.GH_API || 'api.github.com',
       pathPrefix: process.env.GH_API_PATH || ''
     }
-  }
+  },
+  cookies: {
+    secure: false,
+  },
 }

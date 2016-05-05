@@ -12,5 +12,8 @@ module.exports = {
       pathPrefix: process.env.GH_API_PATH,
       debug: false,
     }
-  }
+  },
+  cookies: {
+    secure: true,
+  },
 };
