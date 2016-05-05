@@ -10,6 +10,7 @@ const path = require('path');
 const session = require('express-session');
 
 const oauth = require('./lib/oauth')();
+const repos = require('./lib/github/repos');
 
 //////////////////////////////
 // App Variables
@@ -21,8 +22,8 @@ const app = express();
 //////////////////////////////
 app.set('views', path.join(__dirname, 'views'));
 nunjucks.configure(['views', 'templates'], {
-  'autoescape': true,
-  'express': app,
+  autoescape: true,
+  express: app,
 });
 app.set('view engine', 'html');
 
@@ -67,7 +68,15 @@ app.use((req, res, next) => {
 // Routing
 //////////////////////////////
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('index.html', {
+    token: req.session.token,
+  });
+});
+
+app.get('/repos', (req, res) => {
+  res.render('repos.html', {
+    repos: req.session.repos,
+  });
 });
 
 // OAuth
@@ -85,8 +94,11 @@ oauth.on('error', function (err, token, res, tokenRes, req) {
 });
 
 oauth.on('token', function (token, res, tokenRes, req) {
-  req.flash('token', token);
-  res.redirect('/');
+  return repos(token.access_token).then(allRepos => {
+    req.session.repos = allRepos;
+    req.session.token = token.access_token;
+    res.redirect('/');
+  });
 });
 
 //////////////////////////////
