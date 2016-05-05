@@ -7,9 +7,7 @@ const express = require('express');
 const config = require('config');
 const nunjucks = require('nunjucks');
 const path = require('path');
-const flash = require('connect-flash');
-const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+const session = require('express-session');
 
 const oauth = require('./lib/oauth')();
 
@@ -29,24 +27,39 @@ nunjucks.configure(['views', 'templates'], {
 app.set('view engine', 'html');
 
 // Session
-app.use(cookieParser());
-app.use(cookieSession({
-  'secret': 'babka'
+if (config.cookies.secure) {
+  app.set('trust proxy', 1);
+}
+app.use(session({
+  secret: 'babka',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: config.cookies.secure,
+  },
 }));
 
-// Flash
-app.use(flash());
 app.use((req, res, next) => {
-  const token = req.flash('token');
   let auth = false;
+  let host = `${config.github.api.protocol}://`;
 
-  if (token.length >= 1) {
+  if (req.session.token) {
     auth = true;
-    req.flash('token', token);
-    res.locals.token = token[0].access_token;
   }
 
+  // Host
+  if (config.github.api.host === 'api.github.com') {
+    host += 'github.com';
+  }
+  else {
+    host += config.github.api.host;
+  }
+
+
+  req.session.authenticated = auth;
   res.locals.authenticated = auth;
+
+  res.locals.host = host;
   next();
 });
 
