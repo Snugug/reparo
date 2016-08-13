@@ -1,18 +1,31 @@
 {% extends 'partials/html.html' %}
 
 {% block main %}
-<h2>Orgs</h2>
-<ul>
-  {% for org in repos.orgs %}
-  <li>{{org}}</li>
-  {% endfor %}
-</ul>
 
-<h3>Repos</h3>
-<ul>
-  {% for repo in repos.repos %}
-  <li><a href="{{host}}/{{repo.org}}/{{repo.repo}}">{{repo.repo}}</a></li>
+
+<form action="">
+  <h2>Organizations</h2>
+  {% for org in repos.orgs %}
+  <details class="org">
+    <summary class="org--summary"><img class="org--avatar" src="{{org.avatar}}" height="50" width="50"> <span class="org--name">{{org.name}}</span></summary>
+
+    <input id="select-all--{{org.name}}" type="submit" name="select-all--{{org.name}}" value="Select All">
+
+    <ul class="org--repos">
+      {% for repo in repos.repos %}
+        {% if repo.owner.login == org.name %}
+          <li>
+            <label for="select-all--{{repo.name}}">
+              <input id="select-all--{{repo.name}}" type="checkbox">
+              <a href="{{host}}/{{repo.owner}}/{{repo.name}}">{{repo.name}}</a>
+            </label>
+            </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+  </details>
   {% endfor %}
-</ul>
+</form>
 
 {% endblock %}
