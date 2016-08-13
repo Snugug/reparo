@@ -4,12 +4,16 @@
   "description": "Repository maintainer",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "forever -o out.log index.js",
+    "pretest": "npm run lint",
     "test": "npm run nyc",
+    "posttest": "gulp build",
+    "lint": "eslint index.js lib",
     "nyc": "nyc --all npm run ava",
     "ava": "NODE_CONFIG_DIR=../config ava | tap-diff",
     "ava:watch": "ava --watch | tap-diff",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "dev": "forever -o out.log --watch index.js"
   },
   "repository": {
     "type": "git",
@@ -22,26 +26,37 @@
   },
   "homepage": "https://github.com/Snugug/reparo#readme",
   "dependencies": {
-    "bluebird": "^3.3.5",
-    "color": "^0.11.1",
-    "config": "^1.20.1",
+    "bluebird": "^3.4.1",
+    "color": "^0.11.3",
+    "config": "^1.21.0",
     "crypto": "0.0.3",
-    "events": "^1.1.0",
-    "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "github": "^0.2.4",
+    "events": "^1.1.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "forever": "^0.15.2",
+    "github": "^2.4.0",
     "http2": "^3.3.4",
-    "ibm-design-colors": "^1.5.1",
-    "nodemon": "^1.9.2",
+    "ibm-design-colors": "^1.6.0",
+    "lodash": "^4.14.1",
     "nunjucks": "^2.4.2",
-    "request": "^2.72.0",
+    "request": "^2.74.0",
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "ava": "^0.14.0",
-    "coveralls": "^2.11.9",
-    "nyc": "^6.4.0",
-    "supertest": "^1.2.0",
+    "ava": "^0.15.2",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.2.2",
+    "eslint-config-punchcard": "^1.0.1",
+    "eslint-config-xo-space": "^0.14.0",
+    "ghooks": "^1.3.2",
+    "gulp": "^3.9.1",
+    "nodemon": "^1.10.0",
+    "nyc": "^7.1.0",
+    "punchcard-commit-msg": "^1.0.0",
+    "punchcard-runner": "^2.1.2",
+    "punchcard-semantic-release": "^2.0.1",
+    "semantic-release": "^4.3.5",
+    "supertest": "^2.0.0",
     "tap-diff": "^0.1.1"
   },
   "engines": {
@@ -62,5 +77,10 @@
     ],
     "failFast": true,
     "tap": true
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "punchcard-commit-msg"
+    }
   }
 }
