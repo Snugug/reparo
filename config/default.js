@@ -1,5 +1,5 @@
 const port = process.env.PORT || 5000;
-const host = 'http://localhost';
+const host = process.env.HOST || 'http://localhost';
 
 module.exports = {
   server: {
@@ -16,15 +16,13 @@ module.exports = {
       'admin:repo_hook'
     ],
     api: {
-      version: '3.0.0',
-      debug: true,
+      debug: false,
       protocol: 'https',
       host: process.env.GH_API || 'api.github.com',
-      pathPrefix: process.env.GH_API_PATH || ''
-    }
+    },
   },
   cookies: {
     secure: false,
     secret: process.env.COOKIE_SECRET || 'babka',
   },
-}
+};

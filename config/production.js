@@ -1,15 +1,11 @@
+const port = process.env.PORT || 5000;
+const host = process.env.HOST;
+
 module.exports = {
-  server: {
-    port: process.env.PORT,
-    host: process.env.HOST
-  },
   github: {
     client: process.env.GH_CLIENT,
     secret: process.env.GH_SECRET,
-    url: process.env.HOST,
     api: {
-      host: process.env.GH_API,
-      pathPrefix: process.env.GH_API_PATH,
       debug: false,
     }
   },
