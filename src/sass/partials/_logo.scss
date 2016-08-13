@@ -1,6 +1,7 @@
 .logo {
   display: inline-block;
   max-width: 200px;
+
   &--gear {
     animation: rotate 10s infinite linear;
     fill: color('cool-grey', 50);
@@ -20,6 +21,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
