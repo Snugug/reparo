@@ -1,0 +1,7 @@
+src/**/*
+public/**/*
+.eyeglass_cache/**/*
+.git/**/*
+tests/**/*
+coverage/**/*
+Gulpfile.js

@@ -42,6 +42,8 @@ app.use(session({
   },
 }));
 
+app.use(express.static(path.join(process.cwd(), 'public')));
+
 app.use((req, res, next) => {
   let auth = false;
   let host = `${config.github.api.protocol}://`;
@@ -59,6 +61,7 @@ app.use((req, res, next) => {
   }
 
   _.set(req, 'session.authenticated', auth);
+  _.set(req, 'app.locals.user', req.session.user);
   _.set(req, 'app.locals.authenticated', auth);
   _.set(req, 'app.locals.host', host);
 

@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>{% if title %}{{title}} | {% endif %}Reparo</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
   <header>
-    <a href="/">Reparo</a>
+    <a href="/"><img src="/images/reparo.svg" alt="Repart"></a>
     <nav>
       <ul>
       {% if authenticated %}
@@ -18,6 +19,12 @@
       {% endif %}
       </ul>
     </nav>
+
+    {% if user %}
+    <section class="header--user">
+      <img src="{{user.avatar}}" alt=""><p>{{user.name}}</p>
+    </section>
+    {% endif %}
   </header>
 
   <main>
