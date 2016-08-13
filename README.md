@@ -17,4 +17,6 @@ module.exports = {
 }
 ```
 
-Replacing `{{client}}` with the Client ID and `{{secret}}` with the Client Secret from creating a [Developer Application](https://github.com/settings/developers) to test with. The Homepage URL should be `http://localhost:5000` and the Authorization Callback URL should be `http://localhost:5000/callback`.
+Replacing `{{client}}` with the Client ID and `{{secret}}` with the Client Secret from creating a [Developer Application](https://github.com/settings/developers) to test with. The Homepage URL should be `http://localhost:3000` and the Authorization Callback URL should be `http://localhost:3000/callback`.
+
+Then, run `npm run dev` or, if you have Gulp installed globally, `gulp`.
