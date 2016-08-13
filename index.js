@@ -8,9 +8,11 @@ const config = require('config');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const session = require('express-session');
+const _ = require('lodash');
 
 const oauth = require('./lib/oauth')();
 const repos = require('./lib/github/repos');
+const utils = require('./lib/github/utils');
 
 //////////////////////////////
 // App Variables
@@ -56,11 +58,10 @@ app.use((req, res, next) => {
     host += config.github.api.host;
   }
 
+  _.set(req, 'session.authenticated', auth);
+  _.set(req, 'app.locals.authenticated', auth);
+  _.set(req, 'app.locals.host', host);
 
-  req.session.authenticated = auth;
-  res.locals.authenticated = auth;
-
-  res.locals.host = host;
   next();
 });
 
@@ -88,16 +89,26 @@ app.get('/callback', (req, res) => {
   return oauth.callback(req, res);
 });
 
-oauth.on('error', function (err, token, res, tokenRes, req) {
+oauth.on('error', (err, token, res, tokenRes, req) => {
   req.flash('error message', err);
   res.redirect('/');
 });
 
-oauth.on('token', function (token, res, tokenRes, req) {
-  return repos(token.access_token).then(allRepos => {
-    req.session.repos = allRepos;
-    req.session.token = token.access_token;
+oauth.on('token', (token, res, tokenRes, req) => {
+  return utils.user(token.access_token).then(user => {
+    _.set(req, 'session.user', {
+      name: user.login,
+      avatar: user.avatar_url,
+    });
+
+    return repos(token.access_token);
+  }).then(allRepos => {
+    _.set(req, 'session.repos', allRepos);
+    _.set(req, 'session.token', token.access_token);
+
     res.redirect('/');
+  }).catch(e => {
+    console.error(e);
   });
 });
 
