@@ -3,7 +3,7 @@
   max-width: 200px;
   &--gear {
     animation: rotate 10s infinite linear;
-    fill: color('cool-grey', 40);
+    fill: color('cool-grey', 50);
     transform-origin: center;
   }
 
@@ -12,7 +12,7 @@
   }
 
   &--name {
-    fill: color('teal', 80);
+    fill: color('cool-grey', 70);
   }
 }
 
