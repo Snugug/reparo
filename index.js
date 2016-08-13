@@ -23,7 +23,7 @@ const app = express();
 // Configuration
 //////////////////////////////
 app.set('views', path.join(__dirname, 'views'));
-nunjucks.configure(['views', 'templates'], {
+nunjucks.configure(['views', 'templates', 'public/images'], {
   autoescape: true,
   express: app,
 });

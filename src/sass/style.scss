@@ -1,5 +1,5 @@
-$background: #f00;
+@import 'ibm-colors';
 
-body {
-  background: $background;
-}
+@import 'partials/topbar';
+@import 'partials/logo';
+@import 'partials/a11y';

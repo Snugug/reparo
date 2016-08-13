@@ -1,5 +1,6 @@
 src/**/*
-public/**/*
+public/css/**/*
+public/js/**/*
 .eyeglass_cache/**/*
 .git/**/*
 tests/**/*

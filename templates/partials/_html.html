@@ -6,28 +6,28 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-  <header>
-    <a href="/"><img src="/images/reparo.svg" alt="Repart"></a>
-    <nav>
-      <ul>
+  <header class="topbar">
+    <a href="/" class="topbar--logo">{% include 'reparo.svg' %}<span class="a11y--HIDDEN">Reparo - Home</span></a>
+    <nav class="topbar--nav">
+      <ul class="topbar--list">
       {% if authenticated %}
-        <li><a href="/">Labels</a></li>
-        <li><a href="/repos">Repos</a></li>
+        <li class="topbar--item"><a class="topbar--link" href="/">Labels</a></li>
+        <li class="topbar--item"><a class="topbar--link" href="/repos">Repos</a></li>
 
       {% else %}
-        <li><a href="/login">Login</a></li>
+        <li class="topbar--item"><a class="topbar--link" href="/login">Login</a></li>
       {% endif %}
       </ul>
     </nav>
 
     {% if user %}
-    <section class="header--user">
-      <img src="{{user.avatar}}" alt=""><p>{{user.name}}</p>
+    <section class="topbar--user">
+      <p class="topbar--user"><img src="{{user.avatar}}" class="topbar--avatar" alt="">{{user.name}}</p>
     </section>
     {% endif %}
   </header>
 
-  <main>
+  <main class="main">
     {% block main %}{% endblock %}
   </main>
 
