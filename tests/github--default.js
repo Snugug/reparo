@@ -1,6 +1,6 @@
 import test from 'ava';
 
-const keys = [ 'config', 'debug', 'version', '3.0.0', 'constants', 'requestHeaders', 'gists', 'getGistsApi', 'gitdata', 'getGitdataApi', 'issues', 'getIssuesApi', 'authorization', 'getAuthorizationApi', 'orgs', 'getOrgsApi', 'statuses', 'getStatusesApi', 'pullRequests', 'getPullrequestsApi', 'repos', 'getReposApi', 'user', 'getUserApi', 'events', 'getEventsApi', 'releases', 'getReleasesApi', 'search', 'getSearchApi', 'markdown', 'getMarkdownApi', 'gitignore', 'getGitignoreApi', 'misc', 'getMiscApi' ];
+const keys = [ 'config', 'debug', 'Promise', 'routes', 'constants', 'requestHeaders', 'responseHeaders', 'authorization', 'getAuthorizationApi', 'activity', 'getActivityApi', 'gists', 'getGistsApi', 'gitdata', 'getGitdataApi', 'issues', 'getIssuesApi', 'migrations', 'getMigrationsApi', 'misc', 'getMiscApi', 'orgs', 'getOrgsApi', 'pullRequests', 'getPullrequestsApi', 'reactions', 'getReactionsApi', 'repos', 'getReposApi', 'search', 'getSearchApi', 'users', 'getUsersApi', 'enterprise', 'getEnterpriseApi', ];
 
 test('Default GitHub Auth', t => {
   const github = require('../lib/github');
