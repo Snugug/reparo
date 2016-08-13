@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "forever -o out.log index.js",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && gulp build",
     "test": "npm run nyc",
-    "posttest": "gulp build",
     "lint": "eslint index.js lib",
     "nyc": "nyc --all npm run ava",
     "ava": "NODE_CONFIG_DIR=../config ava | tap-diff",
