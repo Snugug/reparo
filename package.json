@@ -62,8 +62,8 @@
     "tap-diff": "^0.1.1"
   },
   "engines": {
-    "node": "^5.7",
-    "npm": "^3.6"
+    "node": "^6.2",
+    "npm": "^3.9"
   },
   "nyc": {
     "exclude": [
