@@ -13,6 +13,8 @@ const _ = require('lodash');
 const oauth = require('./lib/oauth')();
 const repos = require('./lib/github/repos');
 const utils = require('./lib/github/utils');
+const defaults = require('./lib/labels/default');
+const text = require('./lib/labels/text');
 
 //////////////////////////////
 // App Variables
@@ -78,6 +80,7 @@ app.get('/', (req, res) => {
   if (req.session.authenticated) {
     res.render('repos.html', {
       repos: req.session.repos,
+      labels: text(defaults),
     });
   }
   else {

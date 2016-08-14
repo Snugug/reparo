@@ -1,0 +1,50 @@
+.labels {
+  padding: .5em 1em;
+  flex: 1;
+
+  &--set {
+    border: 2px groove color('black');
+    padding: .5em 1em;
+  }
+
+  &--label {
+    display: block;
+  }
+
+  &--title {
+    display: block;
+  }
+
+  &--group + .labels--group {
+    margin-top: 1em;
+  }
+
+  &--individual {
+    padding: 0 10px;
+    margin-right: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    line-height: 2;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(color('black'), .12);
+    display: inline-block;
+    background: red;
+    font-family: sans-serif;
+  }
+
+  &--delete-label {
+    border: none;
+    background: none;
+  }
+
+  &--text {
+    background: transparent;
+    border: none;
+    text-align: center;
+  }
+
+  legend {
+    padding: .5em;
+  }
+}

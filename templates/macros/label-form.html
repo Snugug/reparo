@@ -1,0 +1,33 @@
+{% macro label(title, options) %}
+<div class="labels">
+  <fieldset class="labels--set">
+    <legend>Label Group</legend>
+    <div class="labels--group">
+      <label for="{{title}}--title" class="labels--label">Title</label>
+      <input type="text" id="{{title}}--title" class="labels--title" value="{{title}}">
+    </div>
+    <div class="labels--group">
+      <label for="{{title}}--description" class="labels--label">Description</label>
+      <input type="text" id="{{title}}--description" class="labels--title" value="{{options.description}}">
+    </div>
+    <div class="labels--group">
+      <label for="{{title}}--color" class="labels--label">Color</label>
+      <input type="color" id="{{title}}--color" class="labels--title" value="{{options.color}}">
+    </div>
+    <div class="labels--group">
+      <h4>Labels</h4>
+      {% for item in options.labels %}
+      <div class="labels--individual" style="background: {{options.color}}; color: {{options.text}};">
+        <input type="text" class="labels--text" aria-label="Label" value="{{item}}">
+        {% if not loop.first %}
+        <input type="submit" name="submit" value="×" aria-label="Delete" class="labels--delete-label">
+        {% endif %}
+      </div>
+      {% endfor %}
+      <input type="submit" name="submit" value="Add" class="labels--add">
+    </div>
+  </fieldset>
+  <input type="submit" name="submit" value="Delete Label Group" class="labels--delete-group">
+</div>
+
+{% endmacro %}
