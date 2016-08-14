@@ -1,5 +1,9 @@
 {% extends 'partials/_html.html' %}
 
 {% block main %}
-<h1>Hello World {{token}}</h1>
+{% if not authenticated %}
+<h1>Hello World</h1>
+{% else %}
+<h1>Your Token Is {{token}}</h1>
+{% endif %}
 {% endblock %}

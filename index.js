@@ -61,9 +61,12 @@ app.use((req, res, next) => {
   }
 
   _.set(req, 'session.authenticated', auth);
+  _.set(req, 'app.locals.messages', req.session.messages);
   _.set(req, 'app.locals.user', req.session.user);
   _.set(req, 'app.locals.authenticated', auth);
   _.set(req, 'app.locals.host', host);
+
+  _.unset(req, 'app.locals.messages');
 
   next();
 });
@@ -72,9 +75,16 @@ app.use((req, res, next) => {
 // Routing
 //////////////////////////////
 app.get('/', (req, res) => {
-  res.render('index.html', {
-    token: req.session.token,
-  });
+  if (req.session.authenticated) {
+    res.render('repos.html', {
+      repos: req.session.repos,
+    });
+  }
+  else {
+    res.render('index.html', {
+      token: req.session.token,
+    });
+  }
 });
 
 app.get('/repos', (req, res) => {
@@ -93,11 +103,12 @@ app.get('/callback', (req, res) => {
 });
 
 oauth.on('error', (err, token, res, tokenRes, req) => {
-  req.flash('error message', err);
+  _.set(req, 'session.user.messages.error', err);
   res.redirect('/');
 });
 
 oauth.on('token', (token, res, tokenRes, req) => {
+  console.log(token);
   return utils.user(token.access_token).then(user => {
     _.set(req, 'session.user', {
       name: user.login,

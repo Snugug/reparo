@@ -7,24 +7,27 @@
 </head>
 <body>
   <header class="topbar">
-    <a href="/" class="topbar--logo">{% include 'reparo.svg' %}<span class="a11y--HIDDEN">Reparo - Home</span></a>
-    <nav class="topbar--nav">
-      <ul class="topbar--list">
+    <div class="_container">
+      <a href="/" class="topbar--logo">{% include 'reparo.svg' %}<span class="a11y--HIDDEN">Reparo - Home</span></a>
       {% if authenticated %}
-        <li class="topbar--item"><a class="topbar--link" href="/">Labels</a></li>
-        <li class="topbar--item"><a class="topbar--link" href="/repos">Repos</a></li>
+{#       <nav class="topbar--nav">
+        <ul class="topbar--list">
 
+          <li class="topbar--item"><a class="topbar--link" href="/">Labels</a></li>
+          <li class="topbar--item"><a class="topbar--link" href="/repos">Repos</a></li>
+        </ul>
+      </nav> #}
       {% else %}
-        <li class="topbar--item"><a class="topbar--link" href="/login">Login</a></li>
+        <div class="topbar--login">{% include 'components/login.html' %}</div>
       {% endif %}
-      </ul>
-    </nav>
 
-    {% if user %}
-    <section class="topbar--user">
-      <p class="topbar--user"><img src="{{user.avatar}}" class="topbar--avatar" alt="">{{user.name}}</p>
-    </section>
-    {% endif %}
+      {% if user %}
+      <section class="pill">
+        <img src="{{user.avatar}}" class="pill--avatar" alt="">
+        <p class="pill--name">{{user.name}}</p>
+      </section>
+      {% endif %}
+    </div>
   </header>
 
   <main class="main">

@@ -4,28 +4,35 @@
 
 
 <form action="">
-  <h2>Organizations</h2>
-  {% for org in repos.orgs %}
-  <details class="org">
-    <summary class="org--summary"><img class="org--avatar" src="{{org.avatar}}" height="50" width="50"> <span class="org--name">{{org.name}}</span></summary>
+  <div class="_repos">
+    {% for org in repos.orgs %}
+    <details class="org">
+      <summary class="org--summary">
+        <div class="pill">
+          <img class="pill--avatar" src="{{org.avatar}}" height="50" width="50">
+          <span class="pill--name">{{org.name}}</span>
+        </div>
+      </summary>
 
-    <input id="select-all--{{org.name}}" type="submit" name="select-all--{{org.name}}" value="Select All">
+      {# <input id="select-all--{{org.name}}" type="submit" name="select-all--{{org.name}}" value="Select All"> #}
 
-    <ul class="org--repos">
-      {% for repo in repos.repos %}
-        {% if repo.owner.login == org.name %}
-          <li>
-            <label for="select-all--{{repo.name}}">
-              <input id="select-all--{{repo.name}}" type="checkbox">
-              <a href="{{host}}/{{repo.owner}}/{{repo.name}}">{{repo.name}}</a>
-            </label>
-            </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+      <ul class="org--repos">
+        {% for repo in repos.repos %}
+          {% if repo.owner.login == org.name %}
+            <li>
+              <label for="select--{{org.name}}-{{repo.name}}">
+                <input id="select--{{org.name}}-{{repo.name}}" type="checkbox">
+                <a href="{{host}}/{{repo.owner}}/{{repo.name}}">{{repo.name}}</a>
+              </label>
+              </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
 
-  </details>
-  {% endfor %}
+    </details>
+    {% endfor %}
+  </div>
+
 </form>
 
 {% endblock %}

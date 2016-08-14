@@ -1,0 +1,34 @@
+.pill {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  font-family: sans-serif;
+  justify-content: flex-start;
+
+
+  .topbar & {
+    @media (min-width: 450px) {
+      justify-content: flex-end;
+      transform: translateY(-.3em);
+    }
+  }
+
+
+  &--avatar {
+    border-radius: .25em 0 0 .25em;
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+  }
+
+  &--name {
+    background: color('cool-grey', 10);
+    border-radius: 0 .25em .25em 0;
+    display: inline-block;
+    height: 2em;
+    line-height: 1;
+    margin: 0;
+    padding: .5em;
+  }
+}

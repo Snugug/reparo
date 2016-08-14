@@ -56,6 +56,7 @@
     "punchcard-commit-msg": "^1.0.0",
     "punchcard-runner": "^2.1.2",
     "punchcard-semantic-release": "^2.0.1",
+    "sass-toolkit": "^2.10.0",
     "semantic-release": "^4.3.5",
     "supertest": "^2.0.0",
     "tap-diff": "^0.1.1"

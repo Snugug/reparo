@@ -1,0 +1,7 @@
+._container {
+  @media (min-width: 450px) {
+    display: flex;
+    flex-basis: 800px;
+    flex-direction: row;
+  }
+}

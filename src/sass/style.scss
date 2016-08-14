@@ -1,5 +1,13 @@
+@import 'toolkit/reset';
+@import 'toolkit';
 @import 'ibm-colors';
 
-@import 'partials/topbar';
-@import 'partials/logo';
-@import 'partials/a11y';
+* {
+  &:focus {
+    outline-color: color('teal', 50);
+    outline-style: auto;
+    outline-width: 5px;
+  }
+}
+@import 'partials/components';
+@import 'partials/layouts';
