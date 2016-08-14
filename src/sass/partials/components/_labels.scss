@@ -1,9 +1,13 @@
+$label-shadow: rgba(color('black'), .12);
+
 .labels {
-  padding: .5em 1em;
   flex: 1;
+  padding: .5em 1em;
+
 
   &--set {
     border: 2px groove color('black');
+    display: flex;
     padding: .5em 1em;
   }
 
@@ -20,31 +24,66 @@
   }
 
   &--individual {
-    padding: 0 10px;
-    margin-right: 5px;
-    margin-top: 10px;
+    background: color('red');
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 $label-shadow;
+    display: inline-block;
+    font-family: sans-serif;
     font-weight: bold;
     line-height: 2;
+    margin-right: 5px;
+    margin-top: 10px;
+    padding: 0 1.5em;
+    position: relative;
     text-align: left;
-    border-radius: 3px;
-    box-shadow: inset 0 -1px 0 rgba(color('black'), .12);
-    display: inline-block;
-    background: red;
-    font-family: sans-serif;
   }
 
   &--delete-label {
-    border: none;
     background: none;
+    border: 0;
+    position: absolute;
+    right: .25em;
+    top: .3em;
   }
 
   &--text {
     background: transparent;
-    border: none;
+    border: 0;
     text-align: center;
+    width: calc(200px - 3em);
+  }
+
+  &--add,
+  &--delete-group {
+    background: color('cool-grey', 10);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: inset 0 -1px 0 $label-shadow;
+    display: block;
+    margin-top: 1em;
+    padding: .25em 1.5em;
+    text-transform: lowercase;
+  }
+
+  &--delete-group {
+    float: right;
   }
 
   legend {
     padding: .5em;
   }
+}
+
+.add-labels {
+  background: color('cool-grey', 10);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 $label-shadow;
+  display: block;
+  flex-basis: 100%;
+  flex-shrink: 0;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding: .25em 1.5em;
+  text-transform: lowercase;
 }

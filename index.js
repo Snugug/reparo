@@ -111,7 +111,6 @@ oauth.on('error', (err, token, res, tokenRes, req) => {
 });
 
 oauth.on('token', (token, res, tokenRes, req) => {
-  console.log(token);
   return utils.user(token.access_token).then(user => {
     _.set(req, 'session.user', {
       name: user.login,

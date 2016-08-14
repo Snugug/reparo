@@ -8,7 +8,7 @@
     </div>
     <div class="labels--group">
       <label for="{{title}}--description" class="labels--label">Description</label>
-      <input type="text" id="{{title}}--description" class="labels--title" value="{{options.description}}">
+      <textarea type="text" id="{{title}}--description" class="labels--title" value="{{options.description}}"></textarea>
     </div>
     <div class="labels--group">
       <label for="{{title}}--color" class="labels--label">Color</label>
@@ -24,7 +24,7 @@
         {% endif %}
       </div>
       {% endfor %}
-      <input type="submit" name="submit" value="Add" class="labels--add">
+      <input type="submit" name="submit" value="Add Label" class="labels--add">
     </div>
   </fieldset>
   <input type="submit" name="submit" value="Delete Label Group" class="labels--delete-group">
