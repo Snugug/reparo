@@ -14,12 +14,16 @@ runner(gulp, {
   },
 });
 
-gulp.task('watch', ['browser-sync', 'sass:watch', 'imagemin:watch', 'js']);
+gulp.task('watch', ['browser-sync', 'sass:watch', 'imagemin:watch', 'js:watch']);
 
 gulp.task('js', () => {
   return gulp.src('src/js/**/*.js')
     .pipe(gulp.dest('public/js'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('js:watch', ['js'], () => {
+  gulp.watch('src/js/**/*.js', ['js']);
 });
 
 gulp.task('browser-sync', ['forever'], () => {
