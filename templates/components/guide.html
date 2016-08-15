@@ -1,0 +1,122 @@
+{% if labels %}
+<style id="image--style">
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+    @font-face {
+      font-family: 'tag';
+      src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAXIAAwAAAAABXgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABHAAAAGIAAABi2VfcP09TLzIAAAGAAAAAYAAAAGAPEgTrY21hcAAAAeAAAABsAAAAbOmvAaNnYXNwAAACTAAAAAgAAAAIAAAAEGdseWYAAAJUAAABGAAAARj0r4zfaGVhZAAAA2wAAAA2AAAANgda3YNoaGVhAAADpAAAACQAAAAkBvUDymhtdHgAAAPIAAAAJAAAACQJgAAAbG9jYQAAA+wAAAAUAAAAFADcAQRtYXhwAAAEAAAAACAAAAAgAA0AK25hbWUAAAQgAAABhgAAAYaZSgn7cG9zdAAABagAAAAgAAAAIAADAAAAAQAAAAoAHgAsAAFsYXRuAAgABAAAAAAAAAABAAAAAWxpZ2EACAAAAAEAAAABAAQABAAAAAEACgAAAAEACgACABIAHgABAAIABgAIAAEABAAHAAMABAAFAAEABAAHAAIACAAAAAMCwAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA6QEDwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEAFAAAAAQABAAAwAAAAEAIABhAGcAdOkB//3//wAAAAAAIABhAGcAdOkA//3//wAB/+P/o/+e/5IXBwADAAEAAAAAAAAAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAwAAAA0DMwNAABQAIwAoAAABLgErASIGHQEUFhcBFjI3ATY0JwEBLgE9ATQ2OwEyFhcJAhMzFSM1Aa8XOyCdQl4ZFgGEEjUTASYSEv58/qkPDzwqnhQmDgGJ/tL+dymAgQMRFxheQp4gOxb+fBMTASYSNRMBhP6pDyUVnSo8Dw/+d/7SAYkBBoCAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAABAAAFRQVlXw889QALBAAAAAAA0oTMowAAAADShMyjAAAAAAMzA0AAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAAzMAAQAAAAAAAAAAAAAAAAAAAAkEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAoAFAAeACgAMgA8AIIAjAABAAAACQApAAMAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEABwAAAAEAAAAAAAIABwBgAAEAAAAAAAMABwA2AAEAAAAAAAQABwB1AAEAAAAAAAUACwAVAAEAAAAAAAYABwBLAAEAAAAAAAoAGgCKAAMAAQQJAAEADgAHAAMAAQQJAAIADgBnAAMAAQQJAAMADgA9AAMAAQQJAAQADgB8AAMAAQQJAAUAFgAgAAMAAQQJAAYADgBSAAMAAQQJAAoANACkaWNvbW9vbgBpAGMAbwBtAG8AbwBuVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwaWNvbW9vbgBpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuUmVndWxhcgBSAGUAZwB1AGwAYQByaWNvbW9vbgBpAGMAbwBtAG8AbwBuRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format('woff');
+      font-weight: normal;
+      font-style: normal;
+
+  }
+    .image--hidden {
+      position: absolute;
+      transform: translateX(calc(-100% - 100vw)) translateY(calc(-100% - 100vh));
+      opacity: 0;
+    }
+    .image--container {
+      -webkit-columns: 2;
+      -moz-columns: 2;
+      columns: 2;
+      width: 1044px;
+      padding: 10px;
+    }
+    .image--basic {
+      font: 16px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      box-sizing: border-box;
+    }
+    .image--group {
+      margin-top: 10px;
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+    }
+    .image--group:nth-of-type(1) {
+      margin-top: 0;
+    }
+    .image--group:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .image--left {
+      width: 125px;
+      float: left;
+      text-align: right;
+      padding-right: 10px;
+    }
+    .image--right {
+      width: calc(100% - 125px);
+      float: left;
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+    }
+    .image--label {
+      display: inline-block;
+      height: 34px;
+      padding: 0 10px;
+      margin-right: 5px;
+      margin-top: 10px;
+      font-weight: bold;
+      line-height: 34px;
+      text-align: center;
+      border-radius: 3px;
+      border: 1px solid transparent;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .12);
+      text-decoration: none;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      -webkit-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+    }
+    .image--label-icon {
+      height: 16px;
+      width: 14px;
+      margin-right: 3px;
+      font-family: 'tag';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+
+      /* Enable Ligatures ================ */
+      letter-spacing: 0;
+      -webkit-font-feature-settings: "liga";
+      -moz-font-feature-settings: "liga=1";
+      -moz-font-feature-settings: "liga";
+      -ms-font-feature-settings: "liga" 1;
+      -o-font-feature-settings: "liga";
+      font-feature-settings: "liga";
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+
+    <div class="image--basic image--container">
+      {% for label, meta in labels %}
+      <div class="image--basic image--group">
+        <div class="image--basic image--left">
+          <p>{{ label|title }}</p>
+        </div>
+        <div class="image--basic image--right">
+          {% for tag in meta.labels %}
+            <div class="image--basic image--label" style="background-color: {{ meta.color }}; color: {{ meta.text }}">
+              <svg height="16" width="14" xmlns="http://www.w3.org/2000/svg">
+                <path fill=" {{meta.text }} " d="M6.73 2.73c-0.47-0.47-1.11-0.73-1.77-0.73H2.5C1.13 2 0 3.13 0 4.5v2.47c0 0.66 0.27 1.3 0.73 1.77l6.06 6.06c0.39 0.39 1.02 0.39 1.41 0l4.59-4.59c0.39-0.39 0.39-1.02 0-1.41L6.73 2.73zM1.38 8.09c-0.31-0.3-0.47-0.7-0.47-1.13V4.5c0-0.88 0.72-1.59 1.59-1.59h2.47c0.42 0 0.83 0.16 1.13 0.47l6.14 6.13-4.73 4.73L1.38 8.09z m0.63-4.09h2v2H2V4z" />
+              </svg>
+              <span class="image--label-name">{{ tag }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
