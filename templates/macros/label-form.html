@@ -24,11 +24,11 @@
         {% endif %}
       </div>
       {% endfor %}
-      <input type="submit" name="submit" value="Add Label" class="labels--add">
+      <input type="submit" name="{{index}}--add-label" value="Add Label" class="labels--add">
     </div>
   </fieldset>
   {% if index != 0 %}
-  <input type="submit" name="submit" value="Delete Label Group" class="labels--delete-group">
+  <input type="submit" name="{{index}}--delete-group" value="Delete Label Group" class="labels--delete-group">
   {% endif %}
 </div>
 

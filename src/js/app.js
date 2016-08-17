@@ -65,22 +65,32 @@
     clone.querySelector('.labels--text').focus();
   };
 
-  const cleanAndSwap = (elem, id) => {
+  const cleanAndSwap = (elem, id, yes) => {
     const prev = elem.name;
     const now = prev.replace('0', id);
     const label = elem.parentNode.querySelector(`[for="${prev}`);
+    const clean = typeof yes === 'undefined';
 
-    if (elem.type === 'color') {
-      elem.value = '#000000'; // eslint-disable-line no-param-reassign
-    }
-    else {
-      elem.value = ''; // eslint-disable-line no-param-reassign
+    // Clean out value?
+    if (clean) {
+      if (elem.type === 'color') {
+        elem.value = '#000000'; // eslint-disable-line no-param-reassign
+      }
+      else {
+        elem.value = ''; // eslint-disable-line no-param-reassign
+      }
     }
 
+    // Set name
     elem.name = now; // eslint-disable-line no-param-reassign
 
-    if (label) {
+    // Set ID
+    if (elem.id) {
       elem.id = now; // eslint-disable-line no-param-reassign
+    }
+
+    // Set label
+    if (label) {
       label.htmlFor = now;
     }
   };
@@ -94,7 +104,7 @@
     const group = allThings[0].cloneNode(true);
     const nomoar = document.createElement('input');
     nomoar.type = 'submit';
-    nomoar.name = 'submit';
+    nomoar.name = `${length}--delete-group`;
     nomoar.value = 'Delete Label Group';
     nomoar.classList.add('labels--delete-group');
     nomoar.addEventListener('click', buhByeGroup);
@@ -125,8 +135,9 @@
     // Clear out stuff
     cleanAndSwap(group.querySelector('.labels--title'), length);
     cleanAndSwap(group.querySelector('.labels--description'), length);
-    cleanAndSwap(group.querySelector('.labels--color'), length);
     cleanAndSwap(group.querySelector('.labels--text'), length);
+    cleanAndSwap(color, length);
+    cleanAndSwap(add, length, false);
 
     // Set Focus
     group.querySelector('.labels--title').focus();
