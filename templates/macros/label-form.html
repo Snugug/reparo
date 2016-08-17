@@ -1,24 +1,24 @@
-{% macro label(title, options) %}
+{% macro label(title, options, index) %}
 <div class="labels">
   <fieldset class="labels--set">
     <legend>Label Group</legend>
     <div class="labels--group">
-      <label for="{{title}}--title" class="labels--label">Title</label>
-      <input type="text" id="{{title}}--title" class="labels--title" value="{{title}}">
+      <label for="{{index}}--title" class="labels--label">Title</label>
+      <input type="text" name="{{index}}--title" id="{{index}}--title" class="labels--title" value="{{title}}">
     </div>
     <div class="labels--group">
-      <label for="{{title}}--description" class="labels--label">Description</label>
-      <textarea type="text" id="{{title}}--description" class="labels--description" value="{{options.description}}"></textarea>
+      <label for="{{index}}--description" class="labels--label">Description</label>
+      <textarea type="text" name="{{index}}--description" id="{{index}}--description" class="labels--description" value="{{options.description}}"></textarea>
     </div>
     <div class="labels--group">
-      <label for="{{title}}--color" class="labels--label">Color</label>
-      <input type="color" id="{{title}}--color" class="labels--color" value="{{options.color}}">
+      <label for="{{index}}--color" class="labels--label">Color</label>
+      <input type="color" name="{{index}}--color" id="{{index}}--color" class="labels--color" value="{{options.color}}">
     </div>
     <div class="labels--group">
       <h4>Labels</h4>
       {% for item in options.labels %}
       <div class="labels--individual" style="background: {{options.color}}; color: {{options.text}};">
-        <input type="text" class="labels--text" aria-label="Label" value="{{item}}">
+        <input type="text" class="labels--text" name="{{index}}--labels" aria-label="Label" value="{{item}}">
         {% if not loop.first %}
         <input type="submit" name="submit" value="×" aria-label="Delete" class="labels--delete-label">
         {% endif %}
@@ -27,7 +27,9 @@
       <input type="submit" name="submit" value="Add Label" class="labels--add">
     </div>
   </fieldset>
+  {% if index != 0 %}
   <input type="submit" name="submit" value="Delete Label Group" class="labels--delete-group">
+  {% endif %}
 </div>
 
 {% endmacro %}

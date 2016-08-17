@@ -9,17 +9,20 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const session = require('express-session');
 const _ = require('lodash');
+const multiplarty = require('connect-multiparty');
 
 const oauth = require('./lib/oauth')();
 const repos = require('./lib/github/repos');
 const utils = require('./lib/github/utils');
 const defaults = require('./lib/labels/default');
 const text = require('./lib/labels/text');
+const split = require('./lib/split');
 
 //////////////////////////////
 // App Variables
 //////////////////////////////
 const app = express();
+const multipart = multiplarty();
 
 //////////////////////////////
 // Configuration
@@ -94,6 +97,14 @@ app.get('/repos', (req, res) => {
   res.render('repos.html', {
     repos: req.session.repos,
   });
+});
+
+app.post('/labels', multipart, (req, res) => {
+  const items = split(req.body);
+
+  console.log(items);
+
+  res.redirect(req.get('Referrer'));
 });
 
 // OAuth

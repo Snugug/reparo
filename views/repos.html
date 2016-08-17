@@ -4,7 +4,7 @@
 {% block main %}
 
 
-<form action="">
+<form action="/labels" method="post" enctype="multipart/form-data" novalidate="">
   <section class="_repos">
     {% for org in repos.orgs %}
     <details class="org">
@@ -22,7 +22,7 @@
           {% if repo.owner.login == org.name %}
             <li>
               <label for="select--{{org.name}}-{{repo.name}}">
-                <input id="select--{{org.name}}-{{repo.name}}" type="checkbox">
+                <input name="repos" value="{{org.name}}/{{repo.name}}" id="select--{{org.name}}-{{repo.name}}" type="checkbox">
                 <a href="{{host}}/{{repo.owner}}/{{repo.name}}">{{repo.name}}</a>
               </label>
               </li>
@@ -35,7 +35,7 @@
 
   <section class="_labels">
     {% for title, options in labels %}
-      {{label(title, options)}}
+      {{label(title, options, loop.index0)}}
     {% endfor %}
     <input type="submit" name="submit" value="Add Label Group" class="add-labels">
   </section>
