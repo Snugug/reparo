@@ -60,7 +60,7 @@
     "gulp": "^3.9.1",
     "gulp-forever-monitor": "0.0.3",
     "nodemon": "^1.10.0",
-    "nyc": "^7.1.0",
+    "nyc": "^6",
     "punchcard-commit-msg": "^1.0.0",
     "punchcard-runner": "^2.1.2",
     "punchcard-semantic-release": "^2.0.1",
