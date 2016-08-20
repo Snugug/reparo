@@ -104,17 +104,17 @@ app.get('/repos', (req, res) => {
 
 app.post('/labels', multipart, (req, res) => {
   let labels;
-  let repos;
+  let reps;
 
   split(req.body).then(all => {
     labels = all.labels;
-    repos = all.repos;
+    reps = all.repos;
 
-    return Promise.map(repos, repo => {
+    return Promise.map(reps, repo => {
       return gen(labels, repo.user, repo.repo, req.session.token);
     });
   }).then(() => {
-    return Promise.map(repos, repo => {
+    return Promise.map(reps, repo => {
       return pr(labels, repo.user, repo.repo, req.session.token);
     });
   }).then(() => {
