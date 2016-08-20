@@ -21,8 +21,6 @@ const split = require('./lib/split');
 const gen = require('./lib/labels/generate');
 const pr = require('./lib/labels/pr');
 
-const wiki = require('./lib/guide/wiki');
-const image = require('./lib/guide/image');
 const push = require('./lib/guide/push');
 
 //////////////////////////////
@@ -115,7 +113,7 @@ app.post('/labels', multipart, (req, res) => {
 
   // Split out the body request
   split(req.body).then(all => {
-    labels =text(all.labels);
+    labels = text(all.labels);
     reps = all.repos;
 
     // Generate Labels
