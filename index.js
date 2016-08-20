@@ -3,6 +3,7 @@
 //////////////////////////////
 // Requires
 //////////////////////////////
+const Promise = require('bluebird');
 const express = require('express');
 const config = require('config');
 const nunjucks = require('nunjucks');
@@ -103,13 +104,19 @@ app.get('/repos', (req, res) => {
 
 app.post('/labels', multipart, (req, res) => {
   let labels;
+  let repos;
 
   split(req.body).then(all => {
     labels = all.labels;
+    repos = all.repos;
 
-    return gen(labels, 'snugug', 'reparo', req.session.token);
+    return Promise.map(repos, repo => {
+      return gen(labels, repo.user, repo.repo, req.session.token);
+    });
   }).then(() => {
-    return pr(labels, 'snugug', 'reparo', req.session.token);
+    return Promise.map(repos, repo => {
+      return pr(labels, repo.user, repo.repo, req.session.token);
+    });
   }).then(() => {
     res.redirect(req.get('Referrer'));
   }).catch(e => {
