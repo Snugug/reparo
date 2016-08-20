@@ -1,0 +1,91 @@
+section:
+  description: Section of the project that this issue belongs to.
+  color: '#c0e6ff'
+  labels:
+    - section
+problem:
+  description: >-
+    Issues that make the product feel broken or prevent us from doing further
+    work. High priority, especially if present in production.
+  color: '#ff5050'
+  labels:
+    - blocked
+    - blocker
+    - bug
+    - externally blocked
+    - hotfix
+experience:
+  description: >-
+    Issues that affect a user's comprehension or overall enjoyment of the
+    product.
+  color: '#ffa573'
+  labels:
+    - visual design
+    - copy
+    - user experience
+    - developer experience
+environment:
+  description: Environment that the issue is present in.
+  color: '#e9e0e0'
+  labels:
+    - staging
+    - production
+mindless:
+  description: Issues that are necessary but less impactful for our users.
+  color: '#ffd4a0'
+  labels:
+    - cleanup
+    - legal
+    - technical debt
+    - experience debt
+feedback:
+  description: >-
+    Issues that require further conversation to figure out how to proceed or
+    what action steps are needed.
+  color: '#db2780'
+  labels:
+    - request for comments
+    - help wanted
+    - question
+    - research
+    - strategy
+    - ready for review
+    - stub
+    - prototype
+addition:
+  description: Issues that will result in new functionality or releases.
+  color: '#b4e051'
+  labels:
+    - feature
+    - release
+improvement:
+  description: Issues that will iterate on existing functionality.
+  color: '#41d6c3'
+  labels:
+    - enhancement
+    - optimization
+pending:
+  description: 'Issues where action can be taken, but has not yet.'
+  color: '#fdd600'
+  labels:
+    - under consideration
+    - consumable
+inactive:
+  description: >-
+    Issues where no actions are needed or possible. The issue is either fixed,
+    addressed better by other issues
+  color: '#dfe9e9'
+  labels:
+    - invalid
+    - won't fix
+    - duplicate
+    - on hold
+epic:
+  description: >-
+    Epics track multiple stories together towards a desired outcome. Each epic
+    should get a label unique to the core concept of the epic, usually 2-3
+    words. Epics should be labeled with their epic label and the `epic` label.
+    Each story related to an epic should be labeled with that epic's label.
+  color: '#9855d4'
+  labels:
+    - epic
