@@ -21,6 +21,10 @@ const split = require('./lib/split');
 const gen = require('./lib/labels/generate');
 const pr = require('./lib/labels/pr');
 
+const wiki = require('./lib/guide/wiki');
+const image = require('./lib/guide/image');
+const push = require('./lib/guide/push');
+
 //////////////////////////////
 // App Variables
 //////////////////////////////
@@ -102,20 +106,31 @@ app.get('/repos', (req, res) => {
   });
 });
 
+/*
+ *  Updates Labels and Builds Label Style Guide
+ */
 app.post('/labels', multipart, (req, res) => {
   let labels;
   let reps;
 
+  // Split out the body request
   split(req.body).then(all => {
-    labels = all.labels;
+    labels =text(all.labels);
     reps = all.repos;
 
+    // Generate Labels
     return Promise.map(reps, repo => {
       return gen(labels, repo.user, repo.repo, req.session.token);
     });
   }).then(() => {
+    // Make PR
     return Promise.map(reps, repo => {
       return pr(labels, repo.user, repo.repo, req.session.token);
+    });
+  }).then(() => {
+    // Build and push Wiki
+    return Promise.map(reps, repo => {
+      return push(labels, repo.user, repo.repo, req.session.token);
     });
   }).then(() => {
     res.redirect(req.get('Referrer'));

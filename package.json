@@ -34,15 +34,19 @@
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "forever": "^0.15.2",
+    "fs-extra": "^0.30.0",
     "github": "^2.4.0",
     "http2": "^3.3.4",
     "ibm-design-colors": "^1.6.0",
     "js-yaml": "^3.6.1",
     "lodash": "^4.14.1",
+    "nodegit": "^0.14.1",
     "nunjucks": "^2.4.2",
     "phantom": "^2.1.15",
     "request": "^2.74.0",
-    "url": "^0.11.0"
+    "underscore.string": "^3.3.4",
+    "url": "^0.11.0",
+    "uuid": "^2.0.2"
   },
   "devDependencies": {
     "ava": "^0.15.2",

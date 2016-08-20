@@ -1,6 +1,7 @@
 src/**/*
 public/css/**/*
 public/js/**/*
+wiki/**/*
 .eyeglass_cache/**/*
 .git/**/*
 tests/**/*
