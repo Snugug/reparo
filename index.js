@@ -143,7 +143,7 @@ app.post('/labels', multipart, (req, res) => {
  */
 app.post('/api/labels', multipart, (req, res) => {
   const labels = req.body.labels;
-  const user req.body.user;
+  const user = req.body.user;
   const repo = req.body.repo;
   const token = req.body.token;
 
@@ -157,6 +157,7 @@ app.post('/api/labels', multipart, (req, res) => {
     res.status(400);
     res.send({
       message: 'Error updating labels',
+      error: e,
     });
   });
 });
