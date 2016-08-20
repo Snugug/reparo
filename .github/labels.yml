@@ -1,12 +1,12 @@
 section:
-  description: Section of the project that this issue belongs to.
+  description: Section of Reparo that this issue belongs to.
   color: '#c0e6ff'
   labels:
     - api
     - website
   text: black
 problem:
-  description: 'Issues that make the product feel broken or prevent us from doing further work. High priority, especially if present in production.'
+  description: 'Issues that make Reparo feel broken or prevent us from doing further work. High priority, especially if present in production.'
   color: '#ff5050'
   labels:
     - blocked
@@ -38,6 +38,7 @@ mindless:
     - cleanup
     - technical debt
     - experience debt
+    - refactor
   text: black
 feedback:
   description: Issues that require further conversation to figure out how to proceed or what action steps are needed.
