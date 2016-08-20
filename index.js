@@ -138,6 +138,29 @@ app.post('/labels', multipart, (req, res) => {
   });
 });
 
+/*
+ * API Endpoint
+ */
+app.post('/api/labels', multipart, (req, res) => {
+  const labels = req.body.labels;
+  const user req.body.user;
+  const repo = req.body.repo;
+  const token = req.body.token;
+
+  return gen(labels, user, repo, token).then(() => {
+    return push(labels, user, repo, token);
+  }).then(() => {
+    res.send({
+      message: 'Labels Updated',
+    });
+  }).catch(e => {
+    res.status(400);
+    res.send({
+      message: 'Error updating labels',
+    });
+  });
+});
+
 // OAuth
 app.get('/login', (req, res) => {
   return oauth.login(req, res);
