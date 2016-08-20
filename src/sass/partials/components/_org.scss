@@ -1,8 +1,10 @@
 .org {
-  break-inside: avoid;
+  flex-grow: 1;
+  flex-basis: 50%;
 
 
   &[open] {
+    flex-basis: 100%;
     .pill--name {
       &::before {
         transform: rotate(45deg);

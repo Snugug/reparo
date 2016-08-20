@@ -27,8 +27,10 @@
     const target = e.target;
     const parent = target.closest('.labels--individual');
     const grandparent = parent.parentNode;
+    const sibling = parent.previousElementSibling;
 
     grandparent.removeChild(parent);
+    sibling.querySelector('.labels--text').focus();
   };
 
   const buhByeGroup = e => {

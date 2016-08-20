@@ -37,7 +37,9 @@
     {% for title, options in labels %}
       {{label(title, options, loop.index0)}}
     {% endfor %}
-    <input type="submit" name="submit" value="Add Label Group" class="add-labels">
+    <div class="_labels--actions">
+      <input type="submit" name="submit" value="Add Label Group" class="add-labels">
+    </div>
   </section>
 
   <input type="submit" name="submit" value="Generate" class="submit">

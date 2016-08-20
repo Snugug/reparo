@@ -17,6 +17,8 @@ const utils = require('./lib/github/utils');
 const defaults = require('./lib/labels/default');
 const text = require('./lib/labels/text');
 const split = require('./lib/split');
+const gen = require('./lib/labels/generate');
+const pr = require('./lib/labels/pr');
 
 //////////////////////////////
 // App Variables
@@ -100,11 +102,20 @@ app.get('/repos', (req, res) => {
 });
 
 app.post('/labels', multipart, (req, res) => {
-  const items = split(req.body);
+  let labels;
 
-  console.log(items);
+  split(req.body).then(all => {
+    labels = all.labels;
 
-  res.redirect(req.get('Referrer'));
+    return gen(labels, 'snugug', 'reparo', req.session.token);
+  }).then(() => {
+    return pr(labels, 'snugug', 'reparo', req.session.token);
+  }).then(() => {
+    res.redirect(req.get('Referrer'));
+  }).catch(e => {
+    console.error(e.message);
+    res.redirect(req.get('Referrer'));
+  });
 });
 
 // OAuth

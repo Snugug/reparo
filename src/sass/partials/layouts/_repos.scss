@@ -1,4 +1,7 @@
 ._repos {
-  columns: 2;
-  padding: 1em 2em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1em 0;
 }
