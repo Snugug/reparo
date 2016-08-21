@@ -11,6 +11,7 @@ const path = require('path');
 const session = require('express-session');
 const _ = require('lodash');
 const multiplarty = require('connect-multiparty');
+const parser = require('body-parser');
 
 const oauth = require('./lib/oauth')();
 const repos = require('./lib/github/repos');
@@ -141,7 +142,7 @@ app.post('/labels', multipart, (req, res) => {
 /*
  * API Endpoint
  */
-app.post('/api/labels', multipart, (req, res) => {
+app.post('/api/labels', parser.json(), (req, res) => {
   const labels = req.body.labels;
   const user = req.body.user;
   const repo = req.body.repo;

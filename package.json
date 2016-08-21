@@ -27,6 +27,7 @@
   "homepage": "https://github.com/Snugug/reparo#readme",
   "dependencies": {
     "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
     "color": "^0.11.3",
     "config": "^1.21.0",
     "connect-multiparty": "^2.0.0",
