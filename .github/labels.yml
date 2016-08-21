@@ -4,6 +4,7 @@ section:
   labels:
     - api
     - website
+    - cli
   text: black
 problem:
   description: 'Issues that make Reparo feel broken or prevent us from doing further work. High priority, especially if present in production.'
