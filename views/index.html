@@ -2,8 +2,18 @@
 
 {% block main %}
 {% if not authenticated %}
-<h1>Hello World</h1>
-{% else %}
-<h1>Your Token Is {{token}}</h1>
+<div class="_hello hello">
+  <h1>Welcome to Reparo!</h1>
+  <p>Log in with GitHub, find your repository (or repositories), and build your label style guide! Your repo's labels will be updated, a PR to manage your labels moving forward will be made, and if you've created a wiki, a <a href="https://github.com/Snugug/reparo/wiki/Label-Style-Guide">Label Style Guide</a> will be generated.</p>
+  <p>You can get Reparo to automatically deploy updates to your labels on every new PR, allowing you to truly manage your labels from GitHub. Run <code>npm install -g reparo</code> to install the Reparo command line tools, make sure you've got <code>GH_TOKEN</code> and <code>REPO_SLUG</code> environment variables (set to a <a href="https://github.com/settings/tokens">Personal Access Token</a> and your repo in <code>user/repo</code> form respectively), and run <code>reparo</code>! If you've deployed Reparo, you can also set <code>REPARO</code> to the URL of your Reparo install.</p>
+  <p>If you're deploying with Travis, you can also do the following with those <a href="https://docs.travis-ci.com/user/environment-variables/">environment variables set</a>:</p>
+  <pre><code class="code"><span class="code--token">before_depoy</span><span class="code--separator">:</span> npm install -g reparo
+
+<span class="code--token">deploy</span><span class="code--separator">:</span>
+  <span class="code--separator">-</span> <span class="code--token">provider</span><span class="code--separator">:</span> script
+    <span class="code--token">script</span><span class="code--separator">:</span> reparo
+    <span class="code--token">on</span><span class="code--separator">:</span>
+      <span class="code--token">branch</span><span class="code--separator">:</span> master</code></pre>
+</div>
 {% endif %}
 {% endblock %}

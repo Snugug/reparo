@@ -1,0 +1,43 @@
+.hello {
+  font-family: sans-serif;
+
+  h1 {
+    font-size: 2em;
+    line-height: 1.618;
+    margin-bottom: 1rem;
+  }
+
+  p + p,
+  p + pre {
+    margin-top: 1.618em;
+  }
+
+  p {
+    line-height: 1.618;
+
+    code {
+      $bkg: rgba(color('black'), .06);
+      background-color: $bkg;
+      border-radius: 3px;
+      font-size: .85em;
+      padding: .1em .2em;
+    }
+  }
+
+  pre {
+    background: color('cool-grey', 70);
+    color: color('yellow', 10);
+    padding: 1em 1.5em;
+    white-space: pre;
+  }
+}
+
+.code {
+  &--token {
+    color: color('magenta', 20);
+  }
+
+  &--separator {
+    color: color('neutral-white', 10);
+  }
+}
