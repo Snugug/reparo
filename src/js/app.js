@@ -145,12 +145,27 @@
     group.querySelector('.labels--title').focus();
   };
 
+  /*
+   * Tabs
+   */
+  const tabby = e => {
+    const target = e.target.closest('.tab');
+    const open = $('.tab[open]');
+
+    FE.call(open, item => {
+      item.removeAttribute('open');
+    });
+
+    target.setAttribute('open', 'open');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const colors = $('.labels--color');
     const adds = $('.labels--add');
     const exes = $('.labels--delete-label');
     const badgroup = $('.labels--delete-group');
     const gimme = $('.add-labels')[0];
+    const tabs = $('.tab');
 
     FE.call(colors, item => {
       item.addEventListener('change', colorMeMine);
@@ -166,6 +181,10 @@
 
     FE.call(badgroup, item => {
       item.addEventListener('click', buhByeGroup);
+    });
+
+    FE.call(tabs, item => {
+      item.addEventListener('click', tabby);
     });
 
     gimme.addEventListener('click', moar);

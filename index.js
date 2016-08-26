@@ -90,6 +90,7 @@ app.get('/', (req, res) => {
     res.render('repos.html', {
       repos: req.session.repos,
       labels: text(defaults),
+      token: req.session.token,
     });
   }
   else {
@@ -116,6 +117,8 @@ app.post('/labels', multipart, (req, res) => {
   split(req.body).then(all => {
     labels = text(all.labels);
     reps = all.repos;
+
+    // console.log(reps);
 
     // Generate Labels
     return Promise.map(reps, repo => {
@@ -179,8 +182,10 @@ oauth.on('error', (err, token, res, tokenRes, req) => {
 
 oauth.on('token', (token, res, tokenRes, req) => {
   return utils.user(token.access_token).then(user => {
+    console.log(user);
     _.set(req, 'session.user', {
-      name: user.login,
+      account: user.login,
+      name: user.name,
       avatar: user.avatar_url,
     });
 

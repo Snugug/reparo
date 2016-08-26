@@ -1,0 +1,9 @@
+<svg class="eye" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-387 605 16 16" enable-background="new -387 605 16 16" xml:space="preserve">
+  <title>eye</title>
+  <g id="eye">
+  	<path id="Shape" d="M-378.9,607c-5.1,0-8.1,6-8.1,6s3,6,8.1,6c4.9,0,7.9-6,7.9-6S-374,607-378.9,607L-378.9,607z M-379,617
+  		c-2.2,0-4-1.8-4-4c0-2.2,1.8-4,4-4c2.2,0,4,1.8,4,4C-375,615.2-376.8,617-379,617L-379,617z"/>
+  </g>
+  <path class="iris" d="M-377,613c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2S-377,611.9-377,613L-377,613z"/>
+</svg>

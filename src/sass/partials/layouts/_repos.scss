@@ -1,7 +1,23 @@
 ._repos {
+  border-radius: 3px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 800px;
-  padding: 1em 0;
+  padding: 1em;
+
+
+  &--orgs {
+    width: 200px;
+  }
+
+  &--repos {
+    flex-grow: 1;
+    margin-left: .5em;
+  }
+
+  &--separator {
+    border-bottom: 1px solid color('neutral-white', 40);
+    margin-top: 1em;
+  }
 }

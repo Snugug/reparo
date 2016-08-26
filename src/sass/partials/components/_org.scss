@@ -1,58 +1,144 @@
 .org {
-  flex-basis: 50%;
-  flex-grow: 1;
+  display: none;
+  font-family: sans-serif;
 
-  &[open] {
-    flex-basis: 100%;
+  &:first-of-type {
+    // display: block;
 
-    .pill--name {
-      &::before {
-        transform: rotate(45deg);
-      }
+    // &:not(:target) {
+    //   display: none;
+    // }
+  }
 
-      &::after {
-        transform: rotate(-45deg);
-      }
+  &:target {
+    display: block;
+  }
+
+  li {
+    @include clearfix;
+    width: 100%;
+  }
+
+  label {
+    display: inline-block;
+    width: calc(100% - 1em);
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
-  &--summary {
-    margin-top: .25em;
+  &--link {
+    display: inline-block;
+    float: right;
+    transform: translateY(.15em);
+    width: 1em;
+  }
 
-    .pill--name {
-      background-color: transparent;
-      padding-right: 1em;
-      position: relative;
-
-      &::before,
-      &::after {
-        background: color('black');
-        content: '';
-        height: 2px;
-        margin-top: -1px;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transition: transform .2s;
-        width: 10px;
-      }
-
-      &::before {
-        transform: rotate(90deg);
-      }
-
-      &::after {
-        transform: rotate(0deg);
-      }
-    }
-
-
-    &::-webkit-details-marker {
-      display: none;
-    }
+  h3 {
+    border-bottom: 1px solid color('neutral-white', 40);
+    font-size: 1.5em;
   }
 
   &--repos {
-    padding: 1em 2em;
+    font-size: 1.25em;
+    line-height: 1.5em;
+    margin-top: 1em;
+
+    [type='checkbox'] {
+      margin-right: .5em;
+      transform: translateY(-.1em);
+    }
+
+    li {
+      border-radius: 3px;
+      padding: .25em;
+
+      &:nth-of-type(even) {
+        background: color('neutral-white', 20);
+      }
+    }
+  }
+}
+
+
+.tab {
+  @include clearfix;
+  color: color('black');
+  display: block;
+  font-family: sans-serif;
+  font-size: .9em;
+  margin-top: 1em;
+  padding: .5em;
+  text-decoration: none;
+
+  &[open] {
+    background: color('neutral-white', 20);
+  }
+
+
+  &--avatar {
+    float: left;
+    height: 2.5em;
+    margin-right: .5em;
+    width: 2.5em;
+  }
+
+  &--name,
+  &--count {
+    display: block;
+  }
+
+  &--name {
+    font-weight: bold;
+  }
+
+  &--token {
+    summary {
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    pre {
+      background: color('neutral-white', 20);
+      border-radius: 3px;
+      font-size: .8em;
+      padding: .25em;
+    }
+  }
+
+  &--USER {
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+
+  &--user-link {
+    color: color('black');
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+}
+
+.eye {
+  fill: none;
+  stroke: color('black');
+  transform: translateY(.25em);
+  width: 1em;
+
+
+  [open] & {
+    fill: color('black');
+    stroke: none;
+  }
+}
+
+.iris {
+  fill: none;
+  stroke: color('black');
+
+  [open] & {
+    fill: color('black');
+    stroke: none;
   }
 }
