@@ -137,7 +137,7 @@ app.post('/labels', multipart, (req, res) => {
   }).then(() => {
     res.redirect(req.get('Referrer'));
   }).catch(e => {
-    console.error(e.message);
+    console.error(e.message);  // eslint-disable-line no-console
     res.redirect(req.get('Referrer'));
   });
 });
@@ -182,7 +182,7 @@ oauth.on('error', (err, token, res, tokenRes, req) => {
 
 oauth.on('token', (token, res, tokenRes, req) => {
   return utils.user(token.access_token).then(user => {
-    console.log(user);
+    // console.log(user);
     _.set(req, 'session.user', {
       account: user.login,
       name: user.name,
@@ -196,7 +196,7 @@ oauth.on('token', (token, res, tokenRes, req) => {
 
     res.redirect('/');
   }).catch(e => {
-    console.error(e);
+    console.error(e); // eslint-disable-line no-console
   });
 });
 
@@ -209,7 +209,7 @@ oauth.on('token', (token, res, tokenRes, req) => {
 /* istanbul ignore if  */
 if (!module.parent) {
   app.listen(config.server.port, () => {
-    console.log(`Server starting on ${config.server.host}:${config.server.port}`);
+    console.log(`Server starting on ${config.server.host}:${config.server.port}`); // eslint-disable-line no-console
   });
 }
 

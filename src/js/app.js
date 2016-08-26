@@ -14,8 +14,6 @@
     const color = target.value;
     const labels = getLabels(target);
 
-    console.log(labels);
-
     Array.prototype.forEach.call(labels, (label) => {
       label.style.backgroundColor = color; // eslint-disable-line no-param-reassign
     });
@@ -39,7 +37,6 @@
     const target = e.target;
     const parent = target.closest('.labels');
     const grandparent = parent.parentNode;
-    console.log(parent);
 
     grandparent.removeChild(parent);
   };
@@ -157,7 +154,7 @@
     });
 
     target.setAttribute('open', 'open');
-  }
+  };
 
   document.addEventListener('DOMContentLoaded', () => {
     const colors = $('.labels--color');
