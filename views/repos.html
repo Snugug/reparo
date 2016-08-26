@@ -12,7 +12,7 @@
       <div class="tab--USER">
         <img class="tab--avatar" src="{{org.avatar}}" height="50" width="50">
         <div class="tab--info">
-          <h2 class="tab--user"><a class="tab--user-link" href="#org--{{org.name}}">{{org.name}}</a></h2>
+          <h2 class="tab--user"><a class="tab--user-link" href="#org--{{org.name | lower}}">{{org.name}}</a></h2>
           <p class="tab--count">Repositories: {{org.total}}</p>
           <details class="tab--token">
             <summary>Token {% include 'eye.svg' %}</summary>
@@ -25,7 +25,7 @@
       <h3 class="_repos--separator">Organizations</h3>
       {% for org in repos.orgs %}
       {% if org.name != user.account %}
-      <a href="#org--{{org.name}}" class="tab">
+      <a href="#org--{{org.name | lower}}" class="tab">
         <img class="tab--avatar" src="{{org.avatar}}" height="50" width="50">
         <span class="tab--info">
           <span class="tab--name">{{org.name}}</span>
@@ -40,7 +40,7 @@
     {# Make sure user is first #}
     {% for org in repos.orgs %}
       {% if org.name == user.account %}
-      <section class="org" id="org--{{org.name}}">
+      <section class="org" id="org--{{org.name | lower}}">
         <h3>{{org.name}}</h3>
         <ul class="org--repos">
         {% for repo in repos.repos %}
@@ -60,7 +60,7 @@
     {# Make sure rest are second #}
     {% for org in repos.orgs %}
       {% if org.name != user.account %}
-      <section class="org" id="org--{{org.name}}">
+      <section class="org" id="org--{{org.name | lower}}">
         <h3>{{org.name}}</h3>
         <ul class="org--repos">
         {% for repo in repos.repos %}
