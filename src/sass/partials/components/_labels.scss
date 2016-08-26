@@ -4,8 +4,11 @@ $label-shadow: rgba(color('black'), .12);
   flex: 1;
   padding: .5em 1em;
 
+
   &:last-of-type {
-    max-width: 50%;
+    @media (min-width: 546px) {
+      max-width: 50%;
+    }
   }
 
 

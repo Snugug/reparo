@@ -129,7 +129,7 @@
 
     group.appendChild(nomoar);
 
-    target.parentNode.insertBefore(group, target);
+    target.closest('._labels').insertBefore(group, target.parentNode);
 
     // Clear out stuff
     cleanAndSwap(group.querySelector('.labels--title'), length);
@@ -185,5 +185,7 @@
     });
 
     gimme.addEventListener('click', moar);
+
+    document.querySelector('.tab--user-link').click();
   });
 }());
