@@ -146,7 +146,7 @@ app.post('/labels', multipart, (req, res) => {
  * API Endpoint
  */
 app.post('/api/labels', parser.json(), (req, res) => {
-  const labels = req.body.labels;
+  const labels = text(req.body.labels);
   const user = req.body.user;
   const repo = req.body.repo;
   const token = req.body.token;
