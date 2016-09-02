@@ -22,7 +22,6 @@ cache:
 #########################
 after_success:
   - npm run coverage
-  - npm run reparo
 
 #########################
 ## Deploy
@@ -34,3 +33,9 @@ deploy:
       secure: ${HEROKU_TOKEN}
     on:
       branch: master
+
+#########################
+## Label Deploy
+#########################
+after_deploy:
+  - npm run reparo
