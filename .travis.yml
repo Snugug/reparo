@@ -20,20 +20,17 @@ cache:
 #########################
 ## Code Coverage
 #########################
-after_success: npm run coverage
+after_success:
+  - npm run coverage
+  - npm run reparo
 
 #########################
 ## Deploy
 #########################
-before_deploy: npm install -g reparo
 deploy:
   - provider: heroku
     skip_cleanup: true
     api_key:
       secure: ${HEROKU_TOKEN}
-    on:
-      branch: master
-  - provider: script
-    script: reparo
     on:
       branch: master
