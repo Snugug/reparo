@@ -9,7 +9,7 @@ module.exports = {
   github: {
     login: '/login',
     callback: '/callback',
-    url: `${host}:${port}`,
+    url: host,
     scope: [
       'repo',
       'public_repo',
