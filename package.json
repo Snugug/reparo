@@ -13,7 +13,9 @@
     "ava:watch": "ava --watch | tap-diff",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "gulp",
-    "reparo": "reparo -b master"
+    "reparo": "reparo -b master",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -49,7 +51,8 @@
     "request": "^2.74.0",
     "underscore.string": "^3.3.4",
     "url": "^0.11.0",
-    "uuid": "^2.0.2"
+    "uuid": "^2.0.2",
+    "snyk": "^1.19.1"
   },
   "devDependencies": {
     "ava": "^0.15.2",
@@ -95,5 +98,6 @@
     "ghooks": {
       "commit-msg": "punchcard-commit-msg"
     }
-  }
+  },
+  "snyk": true
 }
