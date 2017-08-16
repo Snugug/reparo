@@ -1,6 +1,11 @@
-version: v1.5.0
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
 ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:minimatch:20160620':
     - forever > forever-monitor > minimatch:
         patched: '2016-10-12T18:45:57.119Z'
+  'npm:ms:20170412':
+    - phantom > phantomjs-prebuilt > extract-zip > debug > ms:
+        patched: '2017-08-16T08:29:07.860Z'
