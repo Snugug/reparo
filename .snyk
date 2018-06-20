@@ -1,6 +1,33 @@
-version: v1.5.0
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
 ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:minimatch:20160620':
     - forever > forever-monitor > minimatch:
         patched: '2016-10-12T18:45:57.119Z'
+  'npm:hoek:20180212':
+    - nodegit > node-pre-gyp > hawk > sntp > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-gyp > request > hawk > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > hawk > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > hawk > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > request > hawk > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > request > hawk > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > request > hawk > sntp > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
+    - nodegit > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-20T07:08:58.402Z'
