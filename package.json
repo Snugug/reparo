@@ -45,7 +45,7 @@
     "ibm-design-colors": "^1.6.0",
     "js-yaml": "^3.6.1",
     "lodash": "^4.14.1",
-    "nodegit": "^0.14.1",
+    "nodegit": "^0.23.0",
     "nunjucks": "^2.4.2",
     "phantom": "^2.1.15",
     "request": "^2.74.0",
