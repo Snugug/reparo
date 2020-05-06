@@ -1,6 +1,13 @@
-version: v1.5.0
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
 ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:minimatch:20160620':
     - forever > forever-monitor > minimatch:
         patched: '2016-10-12T18:45:57.119Z'
+  SNYK-JS-LODASH-567746:
+    - lodash:
+        patched: '2020-05-06T06:46:42.685Z'
+    - nodegit > lodash:
+        patched: '2020-05-06T06:46:42.685Z'
