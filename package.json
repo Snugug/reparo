@@ -40,7 +40,7 @@
     "express-session": "^1.14.0",
     "forever": "^0.15.2",
     "fs-extra": "^0.30.0",
-    "github": "^2.4.0",
+    "github": "^14.0.0",
     "http2": "^3.3.4",
     "ibm-design-colors": "^1.6.0",
     "js-yaml": "^3.6.1",
